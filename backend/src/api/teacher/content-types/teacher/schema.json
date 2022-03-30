@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teachers",
+  "info": {
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer"
+    },
+    "classes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::class.class",
+      "inversedBy": "teachers"
+    },
+    "account": {
+      "type": "component",
+      "repeatable": false,
+      "component": "account-info.account-info"
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "programming teacher",
+        "construction teacher",
+        "bad teacher"
+      ]
+    }
+  }
+}
